@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
-import { Shield, Scale, Network, Eye, Database, Key, Activity, Layers } from "lucide-react";
+import { Shield, Scale, Network, Eye, Database, Key, Activity, Layers, Lock, Bug } from "lucide-react";
 
 const principles = [
   {
@@ -44,6 +44,16 @@ const principles = [
     icon: Layers,
     title: "Scalability & Resilience",
     desc: "A system that fails under pressure cannot be trusted. Scalability and resilience are not features—they are trust requirements.",
+  },
+  {
+    icon: Lock,
+    title: "Application Security",
+    desc: "Security is not a layer — it is a property of every component. Threat modeling, secure defaults, defense in depth, and continuous verification create systems that withstand attack.",
+  },
+  {
+    icon: Bug,
+    title: "Secure SDLC",
+    desc: "Security must be integrated into the development lifecycle: design review, static analysis, dependency scanning, penetration testing, and incident response planning.",
   },
 ];
 

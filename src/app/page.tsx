@@ -6,6 +6,7 @@ import { AnimatedGrid } from "@/components/animated-grid";
 import { ScrollProgress } from "@/components/scroll-progress";
 import { Navigation } from "@/components/navigation";
 import { CommandPalette } from "@/components/command-palette";
+import { ErrorBoundary } from "@/components/error-boundary";
 import { HeroSection } from "@/components/sections/hero";
 import { AboutSection } from "@/components/sections/about";
 import { ProjectsSection } from "@/components/sections/projects";
@@ -83,19 +84,19 @@ export default function Home() {
             <CommandPalette isOpen={paletteOpen} onClose={() => setPaletteOpen(false)} />
 
             <main className="relative z-10">
-              <HeroSection />
-              <AboutSection />
-              <ProjectsSection />
-              <PhilosophySection />
-              <SkillsSection />
-              <ArchitectureSection />
-              <ExperienceSection />
-              <BlogSection />
-              <TerminalSection />
-              <ContactSection />
+              <ErrorBoundary><HeroSection /></ErrorBoundary>
+              <ErrorBoundary><AboutSection /></ErrorBoundary>
+              <ErrorBoundary><ProjectsSection /></ErrorBoundary>
+              <ErrorBoundary><PhilosophySection /></ErrorBoundary>
+              <ErrorBoundary><SkillsSection /></ErrorBoundary>
+              <ErrorBoundary><ArchitectureSection /></ErrorBoundary>
+              <ErrorBoundary><ExperienceSection /></ErrorBoundary>
+              <ErrorBoundary><BlogSection /></ErrorBoundary>
+              <ErrorBoundary><TerminalSection /></ErrorBoundary>
+              <ErrorBoundary><ContactSection /></ErrorBoundary>
             </main>
 
-            <FooterSection />
+            <ErrorBoundary><FooterSection /></ErrorBoundary>
           </motion.div>
         )}
       </AnimatePresence>

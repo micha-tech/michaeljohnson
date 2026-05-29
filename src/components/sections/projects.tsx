@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ExternalLink, Check, Shield, UserCheck, Brain } from "lucide-react";
+import { ExternalLink, Check, Shield, UserCheck, Brain, ShieldCheck } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
@@ -81,9 +81,31 @@ const projects = [
     ],
     tech: ["Machine Learning", "Python", "Computer Vision", "Security Architecture", "Research"],
   },
+  {
+    id: "appsec",
+    title: "Application Security Framework",
+    tagline: "Security Engineering & Architecture Framework",
+    icon: ShieldCheck,
+    color: "from-rose-500/20 to-rose-500/5",
+    border: "border-rose-500/20",
+    badge: "Security Engineering",
+    description:
+      "A comprehensive application security framework encompassing threat modeling, secure development lifecycle practices, CSP implementation, dependency auditing, and production-grade security hardening patterns for modern web applications.",
+    concepts: [
+      "Threat Modeling (STRIDE/LINDDUN)",
+      "Secure Development Lifecycle",
+      "Content Security Policy Architecture",
+      "Dependency Auditing & SBOM",
+      "OWASP Top 10 Mitigation",
+      "Zero Trust Architecture Patterns",
+      "Security Headers & Hardening",
+      "Incident Response Planning",
+    ],
+    tech: ["Next.js", "Security Headers", "CSP", "ZAP", "SonarQube", "Snyk"],
+  },
 ];
 
-const filters = ["All", "Fintech", "Platform", "Research"];
+const filters = ["All", "Fintech", "Platform", "Security", "Research"];
 
 export function ProjectsSection() {
   const { ref, isVisible } = useIntersectionObserver();
@@ -95,6 +117,7 @@ export function ProjectsSection() {
     : projects.filter((p) => {
         if (activeFilter === "Fintech") return p.id === "trustpoint";
         if (activeFilter === "Platform") return p.id === "anywork365";
+        if (activeFilter === "Security") return p.id === "appsec";
         if (activeFilter === "Research") return p.id === "ai-security";
         return true;
       });

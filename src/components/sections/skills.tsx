@@ -54,6 +54,8 @@ const skillGroups = [
       { name: "Fraud Prevention", level: 85, icon: Shield },
       { name: "Secure Payment Flows", level: 85, icon: Lock },
       { name: "System Architecture", level: 90, icon: Blocks },
+      { name: "Application Security", level: 85, icon: Lock },
+      { name: "Threat Modeling", level: 80, icon: Shield },
     ],
   },
   {

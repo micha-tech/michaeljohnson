@@ -11,6 +11,7 @@ const specialties = [
   "Scalable Infrastructure",
   "Backend Engineering",
   "AI-Assisted Systems",
+  "Application Security",
 ];
 
 export function TypingEffect() {

@@ -353,4 +353,98 @@ You cannot scale what you cannot see. Every service must emit:
 Scaling is a journey, not a destination. The goal is not to build the most distributed system, but to build a system that continues to work well as it grows. Start simple, measure everything, and extract complexity only when the data justifies it.
     `.trim(),
   },
+  {
+    slug: "application-security-in-modern-web-applications",
+    title: "Application Security in Modern Web Applications",
+    excerpt:
+      "Security is not a feature — it is a property of well-engineered systems. A practical guide to threat modeling, secure architecture patterns, CSP, dependency management, and building security into the development lifecycle.",
+    date: "April 28, 2026",
+    readTime: "7 min",
+    tags: ["Security", "Architecture", "Best Practices"],
+    content: `
+Application security is not a checkbox or a compliance exercise. It is an engineering discipline that must be integrated into every phase of the development lifecycle. In modern web applications — where code ships continuously, dependencies are vast, and attack surfaces expand with every feature — security cannot be an afterthought.
+
+## Threat Modeling: The First Line of Defense
+
+Every security practice begins with understanding what you are protecting against. Threat modeling is the systematic process of identifying threats, vulnerabilities, and countermeasures in a system.
+
+### STRIDE Framework
+
+Microsoft's STRIDE provides a useful taxonomy for categorizing threats:
+
+- **S**poofing — impersonating a user or system
+- **T**ampering — modifying data in transit or at rest
+- **R**epudiation — denying an action without auditability
+- **I**nformation Disclosure — exposing data to unauthorized parties
+- **D**enial of Service — exhausting system resources
+- **E**levation of Privilege — gaining unauthorized access
+
+For each component in your architecture, ask: which of these threats apply? Document your trust boundaries, data flows, and threat surface.
+
+## Content Security Policy (CSP): Hardening the Browser
+
+CSP is one of the most effective defenses against XSS and data injection attacks. It allows you to specify exactly which sources of content are trusted:
+
+\`\`\`
+Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' https:; base-uri 'self'; form-action 'self'
+\`\`\`
+
+Key principles:
+
+- Start with a strict policy and relax only when necessary
+- Use nonces or hashes for inline scripts rather than 'unsafe-inline'
+- Report violations via report-uri or report-to directives
+- Test policies in report-only mode before enforcing
+
+## Secure Development Lifecycle
+
+Security must be woven into the development process, not bolted on at the end:
+
+### Design Phase
+- Threat modeling for new features and architecture changes
+- Security requirements documented alongside functional requirements
+- Privacy impact assessments for data-processing features
+
+### Development Phase
+- Static Application Security Testing (SAST) in CI/CD pipeline
+- Dependency scanning for known vulnerabilities (Snyk, npm audit, Dependabot)
+- Secure coding standards and peer review checklists
+- No secrets in code — use environment variables and secret managers
+
+### Testing Phase
+- Dynamic Application Security Testing (DAST) against staging environments
+- Penetration testing for critical paths (authentication, payment, data access)
+- Fuzz testing for input validation boundaries
+
+### Deployment Phase
+- Infrastructure as Code with security scanning (tfsec, checkov)
+- Immutable deployments with minimal attack surface
+- Security headers verified in deployment pipeline
+
+## Dependency Management
+
+Modern applications carry enormous dependency trees. Each dependency is a potential attack vector:
+
+- Maintain a Software Bill of Materials (SBOM) for every application
+- Automate dependency updates with Dependabot or Renovate
+- Pin dependency versions and verify checksums
+- Remove unused dependencies regularly
+
+## Production Security Hardening
+
+Beyond the development process, production systems need continuous security attention:
+
+- **Security headers** — CSP, HSTS, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy
+- **Rate limiting** — protect APIs from abuse and brute force
+- **Authentication hardening** — MFA, rate-limited login, anomaly detection
+- **Audit logging** — every security-relevant event logged immutably
+- **Incident response plan** — documented, tested, and practiced
+
+## Conclusion
+
+Application security is not a destination — it is a practice. The goal is not to build a perfectly secure system (no such thing exists), but to build a system that is resilient to attack, transparent about its security posture, and designed to improve continuously.
+
+In the world of trust engineering, security is the foundation. Without it, trust is just a promise.
+    `.trim(),
+  },
 ];

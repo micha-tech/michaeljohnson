@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
-import { Code2, Shield, Brain, Cpu } from "lucide-react";
+import { Code2, Shield, Brain, Cpu, Lock, Fingerprint } from "lucide-react";
 
 const focusAreas = [
   {
@@ -16,6 +16,11 @@ const focusAreas = [
     desc: "Escrow systems, IAM, fraud prevention",
   },
   {
+    icon: Lock,
+    label: "Application Security",
+    desc: "Secure architecture, threat modeling, CSP, audit",
+  },
+  {
     icon: Brain,
     label: "AI-Assisted Systems",
     desc: "ML-powered trust scoring & detection",
@@ -24,6 +29,11 @@ const focusAreas = [
     icon: Cpu,
     label: "Platform Architecture",
     desc: "Event-driven, serverless, production-grade",
+  },
+  {
+    icon: Fingerprint,
+    label: "Security Engineering",
+    desc: "IAM, cryptography, secure SDLC, zero trust",
   },
 ];
 
@@ -55,16 +65,18 @@ export function AboutSection() {
                   reliability, and long-term sustainability.
                 </p>
                 <p>
-                  I am deeply interested in fintech infrastructure and trust systems, exploring
-                  identity systems, fraud prevention, IAM, cybersecurity, and machine learning
-                  applications. Every system I build is designed for production-grade engineering
-                  excellence.
+                  I am deeply interested in fintech infrastructure, trust systems, and
+                  application security — exploring identity systems, fraud prevention, IAM,
+                  cybersecurity, secure architecture patterns, and machine learning applications.
+                  Every system I build is designed for production-grade engineering excellence
+                  with security woven into every layer.
                 </p>
                 <p>
                   Beyond code, I am curious about computational systems, the economics of trust,
                   and the mathematics that underpin secure, scalable architectures. I believe
                   that great engineering is about solving real infrastructure and platform
-                  problems that enable others to build with confidence.
+                  problems that enable others to build with confidence — and that security
+                  is not a feature but a fundamental property of well-engineered systems.
                 </p>
               </div>
             </div>
