@@ -23,24 +23,27 @@ function LoadingScreen() {
   return (
     <motion.div
       initial={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.5, ease: "easeInOut" }}
+      exit={{ opacity: 0, scale: 0.98 }}
+      transition={{ duration: 0.4, ease: "easeInOut" }}
       className="fixed inset-0 z-[200] bg-background flex items-center justify-center"
     >
       <motion.div
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 0.4 }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
         className="text-center"
       >
         <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center border border-white/10">
           <span className="text-xl font-bold text-gradient">MJ</span>
         </div>
-        <motion.div
-          animate={{ width: ["0%", "100%"] }}
-          transition={{ duration: 0.8, ease: "easeInOut" }}
-          className="h-[2px] bg-gradient-to-r from-primary to-secondary rounded-full w-32 mx-auto"
-        />
+        <div className="h-[2px] bg-white/10 rounded-full w-32 mx-auto overflow-hidden">
+          <motion.div
+            initial={{ x: "-100%" }}
+            animate={{ x: "0%" }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+            className="h-full w-full bg-gradient-to-r from-primary to-secondary rounded-full"
+          />
+        </div>
       </motion.div>
     </motion.div>
   );
@@ -83,7 +86,7 @@ export default function Home() {
             <Navigation onOpenPalette={() => setPaletteOpen(true)} />
             <CommandPalette isOpen={paletteOpen} onClose={() => setPaletteOpen(false)} />
 
-            <main className="relative z-10">
+            <main id="main-content" className="relative z-10">
               <ErrorBoundary><HeroSection /></ErrorBoundary>
               <ErrorBoundary><AboutSection /></ErrorBoundary>
               <ErrorBoundary><ProjectsSection /></ErrorBoundary>

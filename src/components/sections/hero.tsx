@@ -112,6 +112,7 @@ export function HeroSection() {
                   <img
                     src="/images/michaeljohnson.jpeg"
                     alt="Michael Johnson"
+                    loading="lazy"
                     className="w-full h-full object-cover rounded-2xl"
                   />
                 </div>
