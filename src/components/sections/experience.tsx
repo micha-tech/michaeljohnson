@@ -32,7 +32,7 @@ const experiences = [
     ],
   },
   {
-    role: "Marketplace Engineer — AnyWork365",
+    role: "Fullstack Engineer — AnyWork365",
     period: "Featured Project",
     icon: Blocks,
     description:
