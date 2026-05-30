@@ -176,29 +176,29 @@ export function ProjectsSection() {
                     className={`glass-card rounded-2xl border ${project.border} overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary/5`}
                   >
                     <div className="p-6 sm:p-8">
-                      <div className="flex items-start justify-between mb-6">
+                      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-6">
                         <div className="flex items-center gap-3">
-                          <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${project.color} flex items-center justify-center`}>
+                          <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${project.color} flex items-center justify-center shrink-0`}>
                             <project.icon className="w-6 h-6 text-foreground" />
                           </div>
-                          <div>
-                            <div className="flex items-center gap-3 mb-1">
+                          <div className="min-w-0">
+                            <div className="flex flex-wrap items-center gap-2 mb-1">
                               <h4 className="text-xl font-bold">{project.title}</h4>
                               <Badge variant="primary" className="text-[10px]">{project.badge}</Badge>
                             </div>
                             <p className="text-sm text-muted">{project.tagline}</p>
                           </div>
                         </div>
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-2 shrink-0">
                           {project.href && (
                             <a
                               href={project.href}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-medium rounded-lg border border-white/10 text-muted hover:text-foreground hover:border-white/20 transition-all"
+                              className="inline-flex items-center gap-1.5 px-4 py-2.5 sm:px-3 sm:py-2 text-sm sm:text-xs font-medium rounded-lg border border-white/10 text-muted hover:text-foreground hover:border-white/20 transition-all"
                             >
                               Visit Site
-                              <ExternalLink className="w-3 h-3" />
+                              <ExternalLink className="w-3.5 h-3.5 sm:w-3 sm:h-3" />
                             </a>
                           )}
                           <Button
