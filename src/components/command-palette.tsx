@@ -31,7 +31,7 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
       onClose();
       if (action === "download_resume") {
         const a = document.createElement("a");
-        a.href = "/resume/Michael_Johnson_.pdf";
+        a.href = "/resume/resume.pdf";
         a.download = "Michael_Johnson_CV.pdf";
         a.click();
         return;
