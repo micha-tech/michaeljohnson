@@ -10,7 +10,7 @@ const commands = [
   { label: "Engineering Philosophy", action: "#philosophy" },
   { label: "Technical Skills", action: "#skills" },
   { label: "Contact", action: "#contact" },
-  { label: "Download Resume", action: "#" },
+  { label: "Download Resume", action: "download_resume" },
 ];
 
 interface CommandPaletteProps {
@@ -29,7 +29,13 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
   const execute = useCallback(
     (action: string) => {
       onClose();
-      if (action === "#") return;
+      if (action === "download_resume") {
+        const a = document.createElement("a");
+        a.href = "/resume/Michael_Johnson_CV.pdf";
+        a.download = "Michael_Johnson_CV.pdf";
+        a.click();
+        return;
+      }
       const el = document.querySelector(action);
       el?.scrollIntoView({ behavior: "smooth" });
     },

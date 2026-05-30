@@ -12,6 +12,7 @@ const projects = [
     id: "trustpoint",
     title: "TrustPoint",
     tagline: "Trust-Centric Payment Protection & Escrow Infrastructure",
+    href: "https://trustpoint-eight.vercel.app/",
     icon: Shield,
     color: "from-primary/20 to-primary/5",
     border: "border-primary/20",
@@ -43,6 +44,7 @@ const projects = [
     id: "anywork365",
     title: "AnyWork365",
     tagline: "Trust-Centric Freelancer & Services Marketplace",
+    href: "https://anywork365.ng/",
     icon: UserCheck,
     color: "from-secondary/20 to-secondary/5",
     border: "border-secondary/20",
@@ -64,6 +66,7 @@ const projects = [
     id: "ai-security",
     title: "AI & Security Research",
     tagline: "Forward-Looking Engineering & Research Initiative",
+    href: undefined,
     icon: Brain,
     color: "from-accent/20 to-accent/5",
     border: "border-accent/20",
@@ -85,6 +88,7 @@ const projects = [
     id: "appsec",
     title: "Application Security Framework",
     tagline: "Security Engineering & Architecture Framework",
+    href: undefined,
     icon: ShieldCheck,
     color: "from-rose-500/20 to-rose-500/5",
     border: "border-rose-500/20",
@@ -185,13 +189,26 @@ export function ProjectsSection() {
                             <p className="text-sm text-muted">{project.tagline}</p>
                           </div>
                         </div>
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          onClick={() => setExpandedProject(expandedProject === project.id ? null : project.id)}
-                        >
-                          {expandedProject === project.id ? "Less" : "Details"}
-                        </Button>
+                        <div className="flex items-center gap-2">
+                          {project.href && (
+                            <a
+                              href={project.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-medium rounded-lg border border-white/10 text-muted hover:text-foreground hover:border-white/20 transition-all"
+                            >
+                              Visit Site
+                              <ExternalLink className="w-3 h-3" />
+                            </a>
+                          )}
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={() => setExpandedProject(expandedProject === project.id ? null : project.id)}
+                          >
+                            {expandedProject === project.id ? "Less" : "Details"}
+                          </Button>
+                        </div>
                       </div>
 
                       <p className="text-muted text-sm leading-relaxed mb-6">

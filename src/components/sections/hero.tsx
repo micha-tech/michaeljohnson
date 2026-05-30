@@ -72,10 +72,14 @@ export function HeroSection() {
               <Button variant="secondary" size="lg" onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}>
                 Contact Me
               </Button>
-              <Button variant="ghost" size="lg">
+              <a
+                href="/resume/Michael_Johnson_CV.pdf"
+                download
+                className="inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary disabled:pointer-events-none disabled:opacity-50 h-12 px-8 text-base text-muted hover:text-foreground hover:bg-white/5"
+              >
                 Download Resume
                 <Download className="w-4 h-4 ml-2" />
-              </Button>
+              </a>
             </motion.div>
 
             <motion.div variants={itemVariants} className="flex items-center gap-2 text-sm text-muted">
