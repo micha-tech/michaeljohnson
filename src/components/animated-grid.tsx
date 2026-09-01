@@ -13,7 +13,7 @@ export function AnimatedGrid() {
     const cols = Math.ceil(width / gridSize);
     const rows = Math.ceil(height / gridSize);
 
-    ctx.strokeStyle = "rgba(255, 255, 255, 0.03)";
+    ctx.strokeStyle = "rgba(31, 41, 55, 0.04)";
     ctx.lineWidth = 1;
 
     for (let i = 0; i <= cols; i++) {
@@ -40,7 +40,7 @@ export function AnimatedGrid() {
         const distance = Math.sin((x + time * 0.3) * 0.005) * Math.cos((y + time * 0.2) * 0.005);
         const alpha = 0.1 + Math.abs(distance) * 0.15;
 
-        ctx.fillStyle = `rgba(96, 165, 250, ${alpha})`;
+        ctx.fillStyle = `rgba(37, 99, 235, ${alpha})`;
         ctx.beginPath();
         ctx.arc(x, y, dotSize, 0, Math.PI * 2);
         ctx.fill();
@@ -55,8 +55,8 @@ export function AnimatedGrid() {
       height * 0.5,
       width * 0.6
     );
-    gradient.addColorStop(0, "rgba(96, 165, 250, 0.03)");
-    gradient.addColorStop(0.5, "rgba(167, 139, 250, 0.02)");
+    gradient.addColorStop(0, "rgba(37, 99, 235, 0.03)");
+    gradient.addColorStop(0.5, "rgba(71, 85, 105, 0.02)");
     gradient.addColorStop(1, "rgba(0, 0, 0, 0)");
     ctx.fillStyle = gradient;
     ctx.fillRect(0, 0, width, height);

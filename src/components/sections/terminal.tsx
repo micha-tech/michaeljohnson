@@ -31,8 +31,8 @@ export function TerminalSection() {
             Terminal
           </h2>
 
-          <div className="max-w-2xl mx-auto glass rounded-2xl overflow-hidden border border-white/10">
-            <div className="flex items-center gap-2 px-4 py-3 bg-white/5 border-b border-white/5">
+          <div className="max-w-2xl mx-auto glass rounded-2xl overflow-hidden border border-border/30">
+            <div className="flex items-center gap-2 px-4 py-3 bg-foreground/5 border-b border-border/20">
               <div className="w-3 h-3 rounded-full bg-red-500/50" />
               <div className="w-3 h-3 rounded-full bg-yellow-500/50" />
               <div className="w-3 h-3 rounded-full bg-green-500/50" />

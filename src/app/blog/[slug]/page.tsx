@@ -34,13 +34,12 @@ function renderContent(content: string) {
   const elements: React.ReactNode[] = [];
   let inCodeBlock = false;
   let codeLines: string[] = [];
-  let codeLanguage = "";
 
   lines.forEach((line, i) => {
     if (line.startsWith("```")) {
       if (inCodeBlock) {
         elements.push(
-          <pre key={`code-${i}`} className="bg-white/[0.03] border border-white/10 rounded-xl p-4 sm:p-6 overflow-x-auto my-6 font-mono text-sm leading-relaxed">
+          <pre key={`code-${i}`} className="bg-foreground/[0.03] border border-border/30 rounded-xl p-4 sm:p-6 overflow-x-auto my-6 font-mono text-sm leading-relaxed">
             <code>{codeLines.join("\n")}</code>
           </pre>
         );
@@ -48,7 +47,6 @@ function renderContent(content: string) {
         inCodeBlock = false;
       } else {
         inCodeBlock = true;
-        codeLanguage = line.slice(3).trim();
       }
       return;
     }
@@ -148,11 +146,11 @@ export default async function BlogPostPage({ params }: PageProps) {
           </div>
         </header>
 
-        <div className="border-t border-white/5 pt-10">
+        <div className="border-t border-border/20 pt-10">
           <div className="prose-custom">{renderContent(post.content)}</div>
         </div>
 
-        <div className="mt-16 pt-10 border-t border-white/5">
+        <div className="mt-16 pt-10 border-t border-border/20">
           <Link
             href="/blog"
             className="inline-flex items-center gap-2 text-sm text-primary hover:text-primary/80 transition-colors"

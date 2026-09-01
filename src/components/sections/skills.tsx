@@ -3,8 +3,7 @@
 import { motion } from "framer-motion";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 import {
-  Globe, Server, Cloud, Shield, Brain, Code2, Database, Lock,
-  Network, Workflow, Cpu, Blocks, Box, CheckSquare, Users, Zap,
+  Globe, Server, Cloud, Shield, Brain,
 } from "lucide-react";
 
 const skillGroups = [
@@ -12,62 +11,39 @@ const skillGroups = [
     title: "Frontend",
     icon: Globe,
     color: "from-blue-500/20 to-blue-500/5",
-    skills: [
-      { name: "Next.js", level: 95, icon: Code2 },
-      { name: "React", level: 95, icon: Code2 },
-      { name: "TypeScript", level: 90, icon: Code2 },
-      { name: "TailwindCSS", level: 90, icon: Zap },
-      { name: "Framer Motion", level: 85, icon: Zap },
-    ],
+    skills: ["Next.js", "React", "TypeScript", "TailwindCSS", "Framer Motion"],
   },
   {
     title: "Backend",
     icon: Server,
     color: "from-purple-500/20 to-purple-500/5",
-    skills: [
-      { name: "Node.js", level: 90, icon: Server },
-      { name: "PostgreSQL", level: 85, icon: Database },
-      { name: "Auth Systems", level: 85, icon: Lock },
-      { name: "API Architecture", level: 90, icon: Network },
-      { name: "Event-Driven Systems", level: 80, icon: Workflow },
-    ],
+    skills: ["Node.js", "PostgreSQL", "Auth & IAM", "API Architecture", "Event-Driven Systems"],
   },
   {
     title: "Infrastructure",
     icon: Cloud,
     color: "from-emerald-500/20 to-emerald-500/5",
-    skills: [
-      { name: "Vercel", level: 90, icon: Cloud },
-      { name: "Aiven", level: 80, icon: Database },
-      { name: "CI/CD", level: 85, icon: Workflow },
-      { name: "Deployment Pipelines", level: 85, icon: Box },
-      { name: "Scaling Concepts", level: 80, icon: Cpu },
-    ],
+    skills: ["Vercel", "Aiven", "CI/CD", "Deployment Pipelines", "Scaling & Reliability"],
   },
   {
     title: "Security & Systems",
     icon: Shield,
     color: "from-rose-500/20 to-rose-500/5",
     skills: [
-      { name: "Trust Systems", level: 90, icon: Shield },
-      { name: "IAM Concepts", level: 80, icon: Users },
-      { name: "Fraud Prevention", level: 85, icon: Shield },
-      { name: "Secure Payment Flows", level: 85, icon: Lock },
-      { name: "System Architecture", level: 90, icon: Blocks },
-      { name: "Application Security", level: 85, icon: Lock },
-      { name: "Threat Modeling", level: 80, icon: Shield },
+      "Escrow & Trust Systems",
+      "Security Architecture",
+      "Fraud Prevention",
+      "Secure Payment Flows",
+      "System Architecture",
+      "Application Security",
+      "Threat Modeling",
     ],
   },
   {
-    title: "AI & Research",
+    title: "Product & Delivery",
     icon: Brain,
     color: "from-amber-500/20 to-amber-500/5",
-    skills: [
-      { name: "ML Concepts", level: 75, icon: Brain },
-      { name: "AI-Assisted Systems", level: 80, icon: Cpu },
-      { name: "Detection Systems", level: 75, icon: CheckSquare },
-      { name: "Computational Thinking", level: 90, icon: Brain },
-    ],
+    skills: ["Technical Discovery", "System Design", "Testing Strategy", "Performance & Reliability"],
   },
 ];
 
@@ -86,7 +62,7 @@ export function SkillsSection() {
             Technical Skills
           </h2>
           <h3 className="text-3xl sm:text-4xl font-bold mb-8">
-            Full-stack. Deep. <span className="text-gradient">Production-ready.</span>
+            Technical range, with a focus on <span className="text-gradient">practical delivery.</span>
           </h3>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
@@ -104,22 +80,14 @@ export function SkillsSection() {
                   </div>
                   <h4 className="text-sm font-semibold">{group.title}</h4>
                 </div>
-                <div className="space-y-3">
+                <div className="flex flex-wrap gap-2">
                   {group.skills.map((skill) => (
-                    <div key={skill.name}>
-                      <div className="flex items-center justify-between mb-1">
-                        <span className="text-xs text-muted">{skill.name}</span>
-                        <span className="text-[10px] font-mono text-muted">{skill.level}%</span>
-                      </div>
-                      <div className="h-1 bg-white/5 rounded-full overflow-hidden">
-                        <motion.div
-                          initial={{ width: 0 }}
-                          animate={isVisible ? { width: `${skill.level}%` } : {}}
-                          transition={{ duration: 0.8, delay: gi * 0.1 + 0.3, ease: "easeOut" }}
-                          className="h-full rounded-full bg-gradient-to-r from-primary to-secondary"
-                        />
-                      </div>
-                    </div>
+                    <span
+                      key={skill}
+                      className="text-xs px-2.5 py-1 rounded-lg bg-foreground/5 text-muted border border-border/20"
+                    >
+                      {skill}
+                    </span>
                   ))}
                 </div>
               </motion.div>

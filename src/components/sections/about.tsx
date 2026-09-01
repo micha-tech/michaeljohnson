@@ -54,29 +54,24 @@ export function AboutSection() {
                 About
               </h2>
               <h3 className="text-3xl sm:text-4xl font-bold mb-6 leading-tight">
-                Building the infrastructure for{" "}
-                <span className="text-gradient">digital trust</span>
+                A product-minded engineer with a <span className="text-gradient">systems mindset.</span>
               </h3>
               <div className="space-y-4 text-muted text-base leading-relaxed">
                 <p>
-                  I am a Nigerian-based software engineer focused on building scalable and
-                  trust-centric digital systems. My work is driven by a strong systems-thinking
-                  mindset, approaching engineering challenges through the lens of architecture,
-                  reliability, and long-term sustainability.
+                  I am a Nigeria-based full-stack engineer who takes products from ambiguous
+                  requirements to dependable production systems. I work across the stack:
+                  shaping domain models, building interfaces and APIs, integrating third-party
+                  services, and improving the reliability of what ships.
                 </p>
                 <p>
-                  I am deeply interested in fintech infrastructure, trust systems, and
-                  application security — exploring identity systems, fraud prevention, IAM,
-                  cybersecurity, secure architecture patterns, and machine learning applications.
-                  Every system I build is designed for production-grade engineering excellence
-                  with security woven into every layer.
+                  My strongest work sits where correctness matters: payments and escrow,
+                  identity and access, multi-tenant business software, and collaborative
+                  real-time products. I care about clear operational workflows, secure defaults,
+                  and software teams can evolve confidently.
                 </p>
                 <p>
-                  Beyond code, I am curious about computational systems, the economics of trust,
-                  and the mathematics that underpin secure, scalable architectures. I believe
-                  that great engineering is about solving real infrastructure and platform
-                  problems that enable others to build with confidence — and that security
-                  is not a feature but a fundamental property of well-engineered systems.
+                  I am open to senior remote roles where thoughtful engineering, ownership,
+                  and collaboration have a direct impact on customers and the business.
                 </p>
               </div>
             </div>

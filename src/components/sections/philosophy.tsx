@@ -8,52 +8,52 @@ const principles = [
   {
     icon: Shield,
     title: "Trust as a Systems Problem",
-    desc: "Trust is not abstract—it is engineered through verification, transparency, and computational guarantees embedded in every layer of the stack.",
+    desc: "Confidence in digital systems is engineered through verification, transparency, and computational guarantees embedded in every layer of the stack.",
   },
   {
     icon: Scale,
-    title: "Trust as an Economic Mechanism",
-    desc: "Trust reduces transaction costs. Well-designed systems align incentives so that honest behavior is the rational choice.",
+    title: "Incentives & Economics",
+    desc: "Good design reduces transaction costs. Well-built systems align incentives so that the honest choice is also the rational one.",
   },
   {
     icon: Network,
-    title: "Infrastructure-Driven Trust",
-    desc: "Trust must be infrastructure-native, not bolted on. Every database write, every API call, every event is an opportunity to verify.",
+    title: "Infrastructure-Native Security",
+    desc: "Security must be a property of the platform, not an add-on. Every database write, API call, and event is an opportunity to verify.",
   },
   {
     icon: Eye,
-    title: "Verification Systems",
-    desc: "Identity verification, transaction validation, and reputation scoring form the verification layer that makes digital trust possible.",
+    title: "Verification & Auditability",
+    desc: "Identity verification, transaction validation, and reputation scoring form the layer that makes online exchange dependable.",
   },
   {
     icon: Database,
     title: "Reliability Engineering",
-    desc: "Trust requires reliability. Systems must be observable, resilient, and predictable under load. Predictability builds confidence.",
+    desc: "Systems must be observable, resilient, and predictable under load. Predictability is what makes users confident enough to depend on them.",
   },
   {
     icon: Key,
-    title: "Security & Observability",
-    desc: "Security is continuous verification. Observability is the window into system behavior. Together they create accountable infrastructure.",
+    title: "Observability & Accountability",
+    desc: "Observability is the window into system behavior; accountability is what turns that visibility into responsible infrastructure.",
   },
   {
     icon: Activity,
     title: "Reputation Systems",
-    desc: "Reputation is the currency of trust. Distributed, verifiable, and resistant to manipulation—reputation systems are the backbone of marketplace trust.",
+    desc: "Reputation is how platforms confer confidence at scale. Distributed, verifiable, and manipulation-resistant — it is the backbone of marketplaces.",
   },
   {
     icon: Layers,
     title: "Scalability & Resilience",
-    desc: "A system that fails under pressure cannot be trusted. Scalability and resilience are not features—they are trust requirements.",
+    desc: "A system that fails under pressure cannot be relied upon. Scalability and resilience are not features — they are requirements.",
   },
   {
     icon: Lock,
     title: "Application Security",
-    desc: "Security is not a layer — it is a property of every component. Threat modeling, secure defaults, defense in depth, and continuous verification create systems that withstand attack.",
+    desc: "Security is a property of every component, not a layer. Threat modeling, secure defaults, and defense in depth create systems that withstand attack.",
   },
   {
     icon: Bug,
-    title: "Secure SDLC",
-    desc: "Security must be integrated into the development lifecycle: design review, static analysis, dependency scanning, penetration testing, and incident response planning.",
+    title: "Secure Development Lifecycle",
+    desc: "Security is integrated through design review, static analysis, dependency scanning, penetration testing, and incident response planning.",
   },
 ];
 
@@ -76,9 +76,9 @@ export function PhilosophySection() {
               Engineering <span className="text-gradient">Trust</span>
             </h3>
             <p className="text-muted max-w-2xl mx-auto text-base leading-relaxed">
-              Trust is the most important primitive in digital systems. It is not a feature
-              or a feeling—it is an engineering discipline, an economic mechanism, and a
-              computational construct that must be architected, built, and maintained.
+              Confidence is the most important primitive in digital systems. It is not a
+              feature or a feeling — it is an engineering discipline grounded in verification,
+              economics, and security that must be architected, built, and maintained.
             </p>
           </div>
 

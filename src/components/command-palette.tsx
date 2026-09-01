@@ -63,12 +63,15 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
     };
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
-  }, [isOpen, filtered, selectedIndex, execute]);
+  }, [isOpen, filtered, selectedIndex, execute, onClose]);
 
   useEffect(() => {
     if (isOpen) {
-      setQuery("");
-      setSelectedIndex(0);
+      const t = setTimeout(() => {
+        setQuery("");
+        setSelectedIndex(0);
+      }, 0);
+      return () => clearTimeout(t);
     }
   }, [isOpen]);
 
@@ -88,9 +91,9 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
             exit={{ opacity: 0, scale: 0.95, y: -20 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
             onClick={(e) => e.stopPropagation()}
-            className="w-full max-w-lg glass rounded-2xl border border-white/10 shadow-2xl overflow-hidden"
+            className="w-full max-w-lg glass rounded-2xl border border-border/30 shadow-2xl overflow-hidden"
           >
-            <div className="flex items-center gap-3 px-4 py-3 border-b border-white/5">
+            <div className="flex items-center gap-3 px-4 py-3 border-b border-border/20">
               <Search className="w-4 h-4 text-muted" />
               <input
                 autoFocus
@@ -114,7 +117,7 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
                   className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm transition-colors ${
                     i === selectedIndex
                       ? "bg-primary/10 text-primary"
-                      : "text-muted hover:text-foreground hover:bg-white/5"
+                      : "text-muted hover:text-foreground hover:bg-foreground/5"
                   }`}
                 >
                   <span>{cmd.label}</span>

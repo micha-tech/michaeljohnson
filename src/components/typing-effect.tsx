@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 const specialties = [
   "Fullstack Engineering",
@@ -37,8 +37,10 @@ export function TypingEffect() {
           setDisplayText(displayText.slice(0, -1));
         }, 30);
       } else {
-        setIsDeleting(false);
-        setCurrentIndex((prev) => (prev + 1) % specialties.length);
+        timeout = setTimeout(() => {
+          setIsDeleting(false);
+          setCurrentIndex((prev) => (prev + 1) % specialties.length);
+        }, 200);
       }
     }
 

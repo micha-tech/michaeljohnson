@@ -8,8 +8,7 @@ import { cn } from "@/lib/utils";
 const navItems = [
   { label: "About", href: "#about" },
   { label: "Projects", href: "#projects" },
-  { label: "Philosophy", href: "#philosophy" },
-  { label: "Skills", href: "#skills" },
+  { label: "Expertise", href: "#skills" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -58,7 +57,7 @@ export function Navigation({ onOpenPalette }: { onOpenPalette: () => void }) {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
           isScrolled
-            ? "glass border-b border-white/5 shadow-lg shadow-black/10"
+            ? "glass border-b border-border/20 shadow-lg shadow-black/10"
             : "bg-transparent"
         )}
       >
@@ -68,8 +67,7 @@ export function Navigation({ onOpenPalette }: { onOpenPalette: () => void }) {
             className="text-lg font-semibold tracking-tight"
             whileHover={{ scale: 1.02 }}
           >
-            <span className="text-gradient">MJ</span>
-            <span className="text-muted ml-1">.dev</span>
+            <span>Michael Johnson</span>
           </motion.a>
 
           <div className="hidden md:flex items-center gap-1">
@@ -80,20 +78,13 @@ export function Navigation({ onOpenPalette }: { onOpenPalette: () => void }) {
                 className={cn(
                   "px-4 py-2 text-sm rounded-lg transition-all duration-200",
                   activeSection === item.href.slice(1)
-                    ? "text-foreground bg-white/5"
-                    : "text-muted hover:text-foreground hover:bg-white/[0.02]"
+                    ? "text-foreground bg-foreground/5"
+                    : "text-muted hover:text-foreground hover:bg-foreground/[0.02]"
                 )}
               >
                 {item.label}
               </button>
             ))}
-            <button
-              onClick={onOpenPalette}
-              className="ml-2 p-2 text-muted hover:text-foreground rounded-lg hover:bg-white/5 transition-all"
-              aria-label="Command palette"
-            >
-              <Command className="w-4 h-4" />
-            </button>
           </div>
 
           <div className="flex items-center gap-2 md:hidden">

@@ -2,10 +2,10 @@
 
 import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Send, CheckCircle, Mail, AlertCircle } from "lucide-react";
-import { GithubIcon, LinkedinIcon, XIcon } from "@/components/ui/social-icons";
+import { Send, CheckCircle, Mail, AlertCircle, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
+import { socialLinks, email } from "@/lib/social";
 
 interface FormErrors {
   name?: string;
@@ -50,6 +50,8 @@ function sanitizeInput(value: string): string {
 export function ContactSection() {
   const { ref, isVisible } = useIntersectionObserver();
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [submitError, setSubmitError] = useState<string | undefined>(undefined);
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [errors, setErrors] = useState<FormErrors>({});
   const [touched, setTouched] = useState<Record<string, boolean>>({});
@@ -73,7 +75,7 @@ export function ContactSection() {
     [touched]
   );
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const nameError = validateName(formData.name);
     const emailError = validateEmail(formData.email);
@@ -85,13 +87,32 @@ export function ContactSection() {
     setErrors(newErrors);
     setTouched({ name: true, email: true, message: true });
     if (Object.keys(newErrors).length > 0) return;
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: "", email: "", message: "" });
-      setErrors({});
-      setTouched({});
-    }, 4000);
+
+    setSending(true);
+    setSubmitError(undefined);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setSubmitError(data?.error?.form || "Failed to send message. Please try again.");
+        return;
+      }
+      setSubmitted(true);
+      setTimeout(() => {
+        setSubmitted(false);
+        setFormData({ name: "", email: "", message: "" });
+        setErrors({});
+        setTouched({});
+      }, 4000);
+    } catch {
+      setSubmitError("Network error. Please try again or email me directly.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -153,10 +174,10 @@ export function ContactSection() {
                       value={formData.name}
                       onBlur={() => handleBlur("name")}
                       onChange={(e) => handleChange("name", e.target.value)}
-                      className={`w-full px-4 py-3 bg-white/5 border rounded-xl text-sm text-foreground placeholder:text-muted/50 focus:outline-none focus:bg-white/[0.07] transition-all ${
+                      className={`w-full px-4 py-3 bg-foreground/5 border rounded-xl text-sm text-foreground placeholder:text-muted/50 focus:outline-none focus:bg-foreground/[0.07] transition-all ${
                         errors.name && touched.name
                           ? "border-red-500/50 focus:border-red-500/70"
-                          : "border-white/10 focus:border-primary/30"
+                          : "border-border/30 focus:border-primary/30"
                       }`}
                       placeholder="Your name"
                     />
@@ -181,10 +202,10 @@ export function ContactSection() {
                       value={formData.email}
                       onBlur={() => handleBlur("email")}
                       onChange={(e) => handleChange("email", e.target.value)}
-                      className={`w-full px-4 py-3 bg-white/5 border rounded-xl text-sm text-foreground placeholder:text-muted/50 focus:outline-none focus:bg-white/[0.07] transition-all ${
+                      className={`w-full px-4 py-3 bg-foreground/5 border rounded-xl text-sm text-foreground placeholder:text-muted/50 focus:outline-none focus:bg-foreground/[0.07] transition-all ${
                         errors.email && touched.email
                           ? "border-red-500/50 focus:border-red-500/70"
-                          : "border-white/10 focus:border-primary/30"
+                          : "border-border/30 focus:border-primary/30"
                       }`}
                       placeholder="your@email.com"
                     />
@@ -210,10 +231,10 @@ export function ContactSection() {
                     value={formData.message}
                     onBlur={() => handleBlur("message")}
                     onChange={(e) => handleChange("message", e.target.value)}
-                    className={`w-full px-4 py-3 bg-white/5 border rounded-xl text-sm text-foreground placeholder:text-muted/50 focus:outline-none focus:bg-white/[0.07] transition-all resize-none ${
+                    className={`w-full px-4 py-3 bg-foreground/5 border rounded-xl text-sm text-foreground placeholder:text-muted/50 focus:outline-none focus:bg-foreground/[0.07] transition-all resize-none ${
                       errors.message && touched.message
                         ? "border-red-500/50 focus:border-red-500/70"
-                        : "border-white/10 focus:border-primary/30"
+                        : "border-border/30 focus:border-primary/30"
                     }`}
                     placeholder="Tell me about your project or opportunity..."
                   />
@@ -224,9 +245,19 @@ export function ContactSection() {
                     </p>
                   )}
                 </div>
-                <Button type="submit" variant="primary" size="lg" className="w-full">
-                  <Send className="w-4 h-4 mr-2" />
-                  Send Message
+                {submitError && (
+                  <div className="flex items-center gap-2 text-sm text-red-400">
+                    <AlertCircle className="w-4 h-4 shrink-0" />
+                    {submitError}
+                  </div>
+                )}
+                <Button type="submit" variant="primary" size="lg" className="w-full" disabled={sending}>
+                  {sending ? (
+                    <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                  ) : (
+                    <Send className="w-4 h-4 mr-2" />
+                  )}
+                  {sending ? "Sending..." : "Send Message"}
                 </Button>
               </motion.form>
             )}
@@ -238,22 +269,29 @@ export function ContactSection() {
             transition={{ duration: 0.4, delay: 0.3 }}
             className="flex items-center justify-center gap-6 mt-10"
           >
-            {[
-              { icon: GithubIcon, href: "#", label: "GitHub" },
-              { icon: LinkedinIcon, href: "#", label: "LinkedIn" },
-              { icon: XIcon, href: "#", label: "X/Twitter" },
-              { icon: Mail, href: "mailto:hello@michaeljohnson.dev", label: "Email" },
-            ].map((link) => (
-              <motion.a
-                key={link.label}
-                href={link.href}
-                whileHover={{ scale: 1.1, y: -2 }}
-                className="w-12 h-12 rounded-xl glass-card flex items-center justify-center text-muted hover:text-primary hover:border-primary/20 transition-all"
-                aria-label={link.label}
-              >
-                <link.icon className="w-5 h-5" />
-              </motion.a>
-            ))}
+            {socialLinks
+              .filter((link) => link.href)
+              .map((link) => (
+                <motion.a
+                  key={link.label}
+                  href={link.href as string}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  className="w-12 h-12 rounded-xl glass-card flex items-center justify-center text-muted hover:text-primary hover:border-primary/20 transition-all"
+                  aria-label={link.label}
+                >
+                  <link.icon className="w-5 h-5" />
+                </motion.a>
+              ))}
+            <motion.a
+              href={`mailto:${email}`}
+              whileHover={{ scale: 1.1, y: -2 }}
+              className="w-12 h-12 rounded-xl glass-card flex items-center justify-center text-muted hover:text-primary hover:border-primary/20 transition-all"
+              aria-label="Email"
+            >
+              <Mail className="w-5 h-5" />
+            </motion.a>
           </motion.div>
         </motion.div>
       </div>

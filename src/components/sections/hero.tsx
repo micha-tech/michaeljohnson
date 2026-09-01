@@ -1,10 +1,10 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
-import { ArrowDown, Download, ExternalLink } from "lucide-react";
+import Image from "next/image";
+import { Download, ExternalLink, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { TypingEffect } from "@/components/typing-effect";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 
 export function HeroSection() {
@@ -27,7 +27,7 @@ export function HeroSection() {
     <section
       id="hero"
       ref={ref}
-      className="relative min-h-screen flex items-center section-padding overflow-hidden"
+      className="relative min-h-[760px] flex items-center section-padding overflow-hidden"
     >
       <div className="container-wide w-full">
         <motion.div
@@ -37,9 +37,12 @@ export function HeroSection() {
           className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center"
         >
           <div className="relative z-10">
-            <motion.div variants={itemVariants} className="mb-6">
+            <motion.div variants={itemVariants} className="mb-6 flex flex-wrap items-center gap-2">
               <Badge variant="primary" className="text-xs tracking-wider uppercase">
-                Fullstack Software Engineer
+                Senior Full-Stack Engineer
+              </Badge>
+              <Badge variant="secondary" className="text-xs tracking-wider uppercase">
+                Remote-ready · UTC+1
               </Badge>
             </motion.div>
 
@@ -47,44 +50,42 @@ export function HeroSection() {
               variants={itemVariants}
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.05] tracking-tight mb-6"
             >
-              Engineering{" "}
-              <span className="text-gradient">Trust</span>
+              Building reliable
               <br />
-              Into Modern{" "}
-              <span className="text-gradient-blue">Digital</span>
+              software for
               <br />
-              Platforms
+              <span className="text-gradient">complex businesses.</span>
             </motion.h1>
 
             <motion.p
               variants={itemVariants}
               className="text-base sm:text-lg text-muted leading-relaxed max-w-xl mb-8"
             >
-              Fullstack Software Engineer building scalable web applications, trust systems,
-              fintech-inspired infrastructure, and AI-powered systems.
+              I design and ship secure, scalable web platforms—from payment and marketplace
+              workflows to real-time collaboration and multi-tenant SaaS.
             </motion.p>
 
             <motion.div variants={itemVariants} className="flex flex-wrap gap-3 mb-10">
               <Button variant="primary" size="lg" onClick={() => document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" })}>
-                View Projects
+                View selected work
                 <ExternalLink className="w-4 h-4 ml-2" />
               </Button>
               <Button variant="secondary" size="lg" onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}>
-                Contact Me
+                Start a conversation
               </Button>
               <a
                 href="/resume/resume.pdf"
                 download
-                className="inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary disabled:pointer-events-none disabled:opacity-50 h-12 px-8 text-base text-muted hover:text-foreground hover:bg-white/5"
+                className="inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary disabled:pointer-events-none disabled:opacity-50 h-12 px-8 text-base text-muted hover:text-foreground hover:bg-foreground/5"
               >
                 Download Resume
                 <Download className="w-4 h-4 ml-2" />
               </a>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="flex items-center gap-2 text-sm text-muted">
-              <span className="hidden sm:inline">Specializing in</span>
-              <TypingEffect />
+            <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-muted">
+              <span className="inline-flex items-center gap-1.5"><MapPin className="w-4 h-4" /> Nigeria · UTC+1</span>
+              <span>Open to remote senior engineering roles</span>
             </motion.div>
           </div>
 
@@ -105,7 +106,7 @@ export function HeroSection() {
                   ],
                 }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute inset-0 rounded-3xl border border-white/10"
+                className="absolute inset-0 rounded-3xl border border-border/30"
               />
 
               <div className="absolute -inset-0.5 rounded-3xl bg-gradient-to-br from-primary/40 via-secondary/20 to-accent/10 opacity-40 blur-sm" />
@@ -113,52 +114,21 @@ export function HeroSection() {
               <div className="relative w-full h-full rounded-3xl overflow-hidden glass-card">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/5 to-transparent" />
                 <div className="absolute inset-0 flex items-center justify-center p-4">
-                  <img
-                    src="/images/michaeljohnson.jpeg"
+                  <Image
+                    src="/images/michaeljohnson.png"
                     alt="Michael Johnson"
-                    loading="lazy"
-                    className="w-full h-full object-cover rounded-2xl"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover rounded-2xl"
                   />
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-background/80 to-transparent" />
               </div>
 
-              {["Fullstack", "Trust", "Scale", "Build"].map((word, i) => (
-                <motion.div
-                  key={word}
-                  className="absolute text-xs font-mono text-primary/30"
-                  initial={{ opacity: 0 }}
-                  animate={{
-                    opacity: [0.2, 0.5, 0.2],
-                    y: [0, -10, 0],
-                  }}
-                  transition={{
-                    duration: 4,
-                    delay: i * 0.5,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                  style={{
-                    top: `${15 + i * 20}%`,
-                    right: i % 2 === 0 ? "-20px" : "auto",
-                    left: i % 2 === 1 ? "-20px" : "auto",
-                  }}
-                >
-                  {word}
-                </motion.div>
-              ))}
             </div>
           </motion.div>
         </motion.div>
       </div>
-
-      <motion.div
-        animate={{ y: [0, 8, 0] }}
-        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-      >
-        <ArrowDown className="w-5 h-5 text-muted" />
-      </motion.div>
     </section>
   );
 }

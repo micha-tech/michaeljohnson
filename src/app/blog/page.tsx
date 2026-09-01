@@ -61,7 +61,7 @@ export default function BlogPage() {
                   {post.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="inline-flex items-center rounded-full px-2.5 py-0.5 text-[10px] font-medium bg-white/5 text-muted border border-white/10"
+                      className="inline-flex items-center rounded-full px-2.5 py-0.5 text-[10px] font-medium bg-foreground/5 text-muted border border-border/30"
                     >
                       {tag}
                     </span>

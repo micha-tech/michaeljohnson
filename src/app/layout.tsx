@@ -18,11 +18,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://michaeljohnson.dev"),
   title: {
-    default: "Michael Johnson | Fullstack Software Engineer",
+    default: "Michael Johnson | Senior Full-Stack Engineer",
     template: "%s | Michael Johnson",
   },
   description:
-    "Fullstack Software Engineer specializing in scalable web platforms, trust systems, fintech infrastructure, and AI-powered applications. Building the infrastructure for digital trust.",
+    "Senior full-stack engineer building secure, scalable web platforms, payment workflows, and multi-tenant SaaS products.",
   keywords: [
     "Fullstack Engineer",
     "Software Engineer",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: "Michael Johnson",
-    title: "Michael Johnson | Fullstack Software Engineer",
+    title: "Michael Johnson | Senior Full-Stack Engineer",
     description:
       "Building scalable web applications, trust systems, fintech-inspired infrastructure, and AI-powered systems.",
     url: "https://michaeljohnson.dev",
@@ -69,7 +69,7 @@ const jsonLd = {
   "@type": "Person",
   name: "Michael Johnson",
   url: "https://michaeljohnson.dev",
-  jobTitle: "Fullstack Software Engineer",
+  jobTitle: "Senior Full-Stack Engineer",
   description:
     "Fullstack Software Engineer specializing in scalable web platforms, trust systems, fintech infrastructure, and AI-powered applications.",
   knowsAbout: [
