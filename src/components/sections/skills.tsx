@@ -3,47 +3,110 @@
 import { motion } from "framer-motion";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 import {
-  Globe, Server, Cloud, Shield, Brain,
+  Globe, Server, Cloud, Gauge, GitBranch, Code2,
 } from "lucide-react";
 
 const skillGroups = [
   {
+    title: "Languages & Frameworks",
+    icon: Code2,
+    color: "from-indigo-500/20 to-indigo-500/5",
+    skills: [
+      "TypeScript",
+      "JavaScript",
+      "Python",
+      "Node.js",
+      "React 19",
+      "Next.js",
+      "TailwindCSS",
+      "Prisma / Drizzle",
+      "SQL / PostgreSQL",
+      "HTML, CSS & Modern CSS Features",
+    ],
+  },
+  {
     title: "Frontend",
     icon: Globe,
     color: "from-blue-500/20 to-blue-500/5",
-    skills: ["Next.js", "React", "TypeScript", "TailwindCSS", "Framer Motion"],
+    skills: [
+      "Next.js",
+      "React 19",
+      "TypeScript",
+      "TailwindCSS",
+      "Framer Motion",
+      "RSC / Server Components",
+      "Streaming & SSR",
+      "Progressive Web Apps",
+      "Accessibility (a11y)",
+      "Performance Optimization",
+    ],
   },
   {
     title: "Backend",
     icon: Server,
     color: "from-purple-500/20 to-purple-500/5",
-    skills: ["Node.js", "PostgreSQL", "Auth & IAM", "API Architecture", "Event-Driven Systems"],
-  },
-  {
-    title: "Infrastructure",
-    icon: Cloud,
-    color: "from-emerald-500/20 to-emerald-500/5",
-    skills: ["Vercel", "Aiven", "CI/CD", "Deployment Pipelines", "Scaling & Reliability"],
-  },
-  {
-    title: "Security & Systems",
-    icon: Shield,
-    color: "from-rose-500/20 to-rose-500/5",
     skills: [
-      "Escrow & Trust Systems",
-      "Security Architecture",
-      "Fraud Prevention",
-      "Secure Payment Flows",
-      "System Architecture",
-      "Application Security",
-      "Threat Modeling",
+      "Node.js",
+      "PostgreSQL",
+      "Prisma / Drizzle ORM",
+      "REST & GraphQL APIs",
+      "Webhooks & Event-Driven Design",
+      "Idempotency & Exactly-Once Processing",
+      "Background Jobs & Queues",
+      "Payment Integrations (Paystack)",
+      "Auth, IAM & RBAC",
+      "Server Security & Rate Limiting",
     ],
   },
   {
-    title: "Product & Delivery",
-    icon: Brain,
+    title: "Infrastructure & Cloud",
+    icon: Cloud,
+    color: "from-emerald-500/20 to-emerald-500/5",
+    skills: [
+      "Vercel",
+      "AWS Fundamentals",
+      "Aiven (managed Postgres)",
+      "Edge Functions",
+      "Serverless",
+      "Database Connection Pooling",
+      "Migrations & Versioning",
+      "Environment Config & Secrets",
+      "Caching Strategy",
+      "Backups & Disaster Recovery",
+    ],
+  },
+  {
+    title: "Monitoring & Observability",
+    icon: Gauge,
+    color: "from-sky-500/20 to-sky-500/5",
+    skills: [
+      "Structured Logging",
+      "Error Tracking",
+      "Application Monitoring",
+      "Real-time Analytics",
+      "Synthetic Uptime Checks",
+      "Alerting & On-call",
+      "SLIs / SLOs",
+      "Performance Budgets",
+      "Tracing & Request Logs",
+    ],
+  },
+  {
+    title: "DevOps & Delivery",
+    icon: GitBranch,
     color: "from-amber-500/20 to-amber-500/5",
-    skills: ["Technical Discovery", "System Design", "Testing Strategy", "Performance & Reliability"],
+    skills: [
+      "Git & GitHub Workflows",
+      "CI/CD Pipelines",
+      "Automated Deployments",
+      "Testing Strategy (Vitest / Playwright)",
+      "Environment Promotion",
+      "Zero-Downtime Releases",
+      "Dependency & Lockfile Hygiene",
+      "Code Review & Conventions",
+      "Linting & Static Analysis",
+      "Release Automation",
+    ],
   },
 ];
 
@@ -65,7 +128,7 @@ export function SkillsSection() {
             Technical range, with a focus on <span className="text-gradient">practical delivery.</span>
           </h3>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {skillGroups.map((group, gi) => (
               <motion.div
                 key={group.title}
