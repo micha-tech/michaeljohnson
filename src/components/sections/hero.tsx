@@ -27,14 +27,14 @@ export function HeroSection() {
     <section
       id="hero"
       ref={ref}
-      className="relative min-h-[760px] flex items-center section-padding overflow-hidden"
+      className="relative min-h-screen flex items-center overflow-hidden pt-28 pb-16"
     >
       <div className="container-wide w-full">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate={isVisible ? "visible" : "hidden"}
-          className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center"
+          className="grid lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-16 items-center min-h-[650px]"
         >
           <div className="relative z-10">
             <motion.div variants={itemVariants} className="mb-6 flex flex-wrap items-center gap-2">
@@ -48,7 +48,7 @@ export function HeroSection() {
 
             <motion.h1
               variants={itemVariants}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.05] tracking-tight mb-6"
+              className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.8rem] xl:text-[7rem] font-bold leading-[0.92] tracking-[-0.06em] mb-8"
             >
               Building reliable
               <br />
@@ -62,7 +62,7 @@ export function HeroSection() {
               className="text-base sm:text-lg text-muted leading-relaxed max-w-xl mb-8"
             >
               I design and ship secure, scalable web platforms—from payment and marketplace
-              workflows to real-time collaboration and multi-tenant SaaS.
+              workflows to real-time collaboration and multi-tenant SaaS products.
             </motion.p>
 
             <motion.div variants={itemVariants} className="flex flex-wrap gap-3 mb-10">
@@ -91,40 +91,22 @@ export function HeroSection() {
 
           <motion.div
             variants={itemVariants}
-            className="relative flex items-center justify-center lg:justify-end"
+            className="relative flex items-center justify-center lg:justify-end self-stretch min-h-[510px]"
           >
-            <div className="relative w-full max-w-md aspect-[3/4]">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-secondary/10 to-accent/5 rounded-3xl blur-3xl animate-pulse" />
-              <div className="absolute inset-2 bg-gradient-to-tr from-primary/10 via-secondary/5 to-transparent rounded-3xl" />
-
-              <motion.div
-                animate={{
-                  boxShadow: [
-                    "0 0 0 0 rgba(96, 165, 250, 0.3)",
-                    "0 0 0 20px rgba(96, 165, 250, 0)",
-                    "0 0 0 0 rgba(96, 165, 250, 0)",
-                  ],
-                }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute inset-0 rounded-3xl border border-border/30"
-              />
-
-              <div className="absolute -inset-0.5 rounded-3xl bg-gradient-to-br from-primary/40 via-secondary/20 to-accent/10 opacity-40 blur-sm" />
-
-              <div className="relative w-full h-full rounded-3xl overflow-hidden glass-card">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/5 to-transparent" />
-                <div className="absolute inset-0 flex items-center justify-center p-4">
+            <div className="relative w-full max-w-[520px] h-full min-h-[560px] overflow-hidden bg-card">
+              <div className="absolute inset-0 opacity-40 bg-gradient-to-t from-background via-transparent to-transparent z-10" />
+              <div className="absolute inset-0 flex items-center justify-center">
                   <Image
                     src="/images/michaeljohnson.png"
                     alt="Michael Johnson"
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover rounded-2xl"
+                    className="object-cover object-center grayscale-[15%] contrast-110"
                   />
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-background/80 to-transparent" />
               </div>
-
+              <div className="absolute left-6 bottom-6 z-20 border-l-2 border-primary pl-3 text-xs font-mono uppercase tracking-[0.16em] text-foreground/80">
+                Systems · Product · Delivery
+              </div>
             </div>
           </motion.div>
         </motion.div>

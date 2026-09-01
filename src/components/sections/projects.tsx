@@ -368,7 +368,7 @@ export function ProjectsSection() {
                   transition={{ duration: 0.4, delay: i * 0.05 }}
                 >
                   <div
-                    className={`glass-card rounded-2xl border ${project.border} overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary/5`}
+                    className={`glass-card border ${project.border} overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary/5`}
                   >
                     <div className="p-6 sm:p-8">
                       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-6">

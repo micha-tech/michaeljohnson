@@ -85,6 +85,12 @@ export function Navigation({ onOpenPalette }: { onOpenPalette: () => void }) {
                 {item.label}
               </button>
             ))}
+            <button
+              onClick={() => handleNav("#contact")}
+              className="ml-4 bg-primary px-4 py-2 text-xs font-semibold uppercase tracking-wide text-primary-foreground transition-colors hover:bg-primary/90"
+            >
+              Let&apos;s talk
+            </button>
           </div>
 
           <div className="flex items-center gap-2 md:hidden">

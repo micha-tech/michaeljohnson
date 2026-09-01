@@ -144,7 +144,7 @@ export function ContactSection() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0 }}
-                className="glass-card rounded-2xl p-12 text-center"
+                className="glass-card p-12 text-center"
               >
                 <CheckCircle className="w-16 h-16 text-accent mx-auto mb-4" />
                 <h4 className="text-xl font-semibold mb-2">Message sent!</h4>
@@ -158,7 +158,7 @@ export function ContactSection() {
                 exit={{ opacity: 0 }}
                 onSubmit={handleSubmit}
                 noValidate
-                className="glass-card rounded-2xl p-6 sm:p-8 space-y-5"
+                className="glass-card p-6 sm:p-8 space-y-5"
               >
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
