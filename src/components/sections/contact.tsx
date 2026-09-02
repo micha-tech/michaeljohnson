@@ -2,10 +2,10 @@
 
 import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Send, CheckCircle, Mail, AlertCircle, Loader2 } from "lucide-react";
+import { Send, CheckCircle, Mail, AlertCircle, Loader2, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
-import { socialLinks, email } from "@/lib/social";
+import { socialLinks, email, whatsapp, whatsappHref } from "@/lib/social";
 
 interface FormErrors {
   name?: string;
@@ -135,6 +135,14 @@ export function ContactSection() {
               Open to engineering opportunities, collaborations, and conversations about
               trust infrastructure and platform engineering.
             </p>
+            <div className="mt-6 flex flex-col sm:flex-row justify-center gap-3 text-sm">
+              <a href={`mailto:${email}`} className="inline-flex items-center justify-center gap-2 border border-border/60 px-4 py-3 text-foreground transition-colors hover:border-primary hover:text-primary">
+                <Mail className="w-4 h-4" /> {email}
+              </a>
+              <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-primary px-4 py-3 font-medium text-primary-foreground transition-colors hover:bg-primary/90">
+                <MessageCircle className="w-4 h-4" /> WhatsApp: {whatsapp}
+              </a>
+            </div>
           </div>
 
           <AnimatePresence mode="wait">
@@ -291,6 +299,16 @@ export function ContactSection() {
               aria-label="Email"
             >
               <Mail className="w-5 h-5" />
+            </motion.a>
+            <motion.a
+              href={whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.1, y: -2 }}
+              className="w-12 h-12 rounded-xl glass-card flex items-center justify-center text-muted hover:text-primary hover:border-primary/20 transition-all"
+              aria-label="WhatsApp"
+            >
+              <MessageCircle className="w-5 h-5" />
             </motion.a>
           </motion.div>
         </motion.div>

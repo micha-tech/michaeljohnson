@@ -7,10 +7,8 @@ import { Search, ArrowRight, X } from "lucide-react";
 const commands = [
   { label: "View Projects", action: "#projects" },
   { label: "About Me", action: "#about" },
-  { label: "Engineering Philosophy", action: "#philosophy" },
   { label: "Technical Skills", action: "#skills" },
   { label: "Contact", action: "#contact" },
-  { label: "Download Resume", action: "download_resume" },
 ];
 
 interface CommandPaletteProps {
@@ -29,13 +27,6 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
   const execute = useCallback(
     (action: string) => {
       onClose();
-      if (action === "download_resume") {
-        const a = document.createElement("a");
-        a.href = "/resume/resume.pdf";
-        a.download = "Michael_Johnson_CV.pdf";
-        a.click();
-        return;
-      }
       const el = document.querySelector(action);
       el?.scrollIntoView({ behavior: "smooth" });
     },

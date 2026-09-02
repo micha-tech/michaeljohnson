@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
-const CONTACT_TO = process.env.CONTACT_TO || "hello@michaeljohnson.dev";
+const CONTACT_TO = process.env.CONTACT_TO || "pstmichaeljohnson721@gmail.com";
 const CONTACT_FROM = process.env.CONTACT_FROM || "onboarding@resend.dev";
 
 function validateName(name: string): string | undefined {

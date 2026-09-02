@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail } from "lucide-react";
-import { socialLinks, email } from "@/lib/social";
+import { Mail, MessageCircle } from "lucide-react";
+import { socialLinks, email, whatsappHref } from "@/lib/social";
 
 export function FooterSection() {
   return (
@@ -45,6 +45,15 @@ export function FooterSection() {
               aria-label="Email"
             >
               <Mail className="w-4 h-4" />
+            </a>
+            <a
+              href={whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted hover:text-primary transition-colors"
+              aria-label="WhatsApp"
+            >
+              <MessageCircle className="w-4 h-4" />
             </a>
           </div>
         </div>

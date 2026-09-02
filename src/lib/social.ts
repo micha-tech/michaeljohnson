@@ -6,7 +6,9 @@ export interface SocialLink {
   label: string;
 }
 
-export const email = "hello@michaeljohnson.dev";
+export const email = "pstmichaeljohnson721@gmail.com";
+export const whatsapp = "+2347073512305";
+export const whatsappHref = "https://wa.me/2347073512305";
 
 /**
  * Set each href to your actual profile URL (e.g. "https://github.com/yourname").

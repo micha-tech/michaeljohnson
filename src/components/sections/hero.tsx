@@ -2,7 +2,7 @@
 
 import { motion, type Variants } from "framer-motion";
 import Image from "next/image";
-import { Download, ExternalLink, MapPin } from "lucide-react";
+import { ExternalLink, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
@@ -73,14 +73,6 @@ export function HeroSection() {
               <Button variant="secondary" size="lg" onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}>
                 Start a conversation
               </Button>
-              <a
-                href="/resume/resume.pdf"
-                download
-                className="inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary disabled:pointer-events-none disabled:opacity-50 h-12 px-8 text-base text-muted hover:text-foreground hover:bg-foreground/5"
-              >
-                Download Resume
-                <Download className="w-4 h-4 ml-2" />
-              </a>
             </motion.div>
 
             <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-muted">
