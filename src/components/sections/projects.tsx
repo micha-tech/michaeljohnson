@@ -373,12 +373,12 @@ export function ProjectsSection() {
                   <div
                     className={`glass-card rounded-3xl border ${project.border} overflow-hidden grid lg:grid-cols-[340px_minmax(0,1fr)] transition-all duration-300 hover:shadow-lg hover:shadow-primary/5`}
                   >
-                    <figure className={`relative flex flex-col items-center justify-center gap-6 overflow-hidden bg-gradient-to-br ${project.color} px-7 py-10 border-b lg:border-b-0 lg:border-r border-white/5`}>
+                    <figure className={`relative flex flex-col items-center justify-center gap-4 sm:gap-6 overflow-hidden bg-gradient-to-br ${project.color} px-5 sm:px-7 py-6 sm:py-10 border-b lg:border-b-0 lg:border-r border-white/5`}>
                       <span aria-hidden="true" className="absolute top-6 left-6 text-xs font-mono tracking-[0.2em] text-muted">0{i + 1}</span>
-                      <div className="relative w-full max-w-[238px] rounded-[2.5rem] border border-white/25 bg-[#111113] p-[7px] shadow-[0_24px_50px_-12px_rgba(0,0,0,0.65)] transition-transform duration-500 motion-safe:hover:-translate-y-2">
+                      <div className="relative w-full max-w-[180px] sm:max-w-[238px] rounded-[2.5rem] border border-white/25 bg-[#111113] p-[7px] shadow-[0_24px_50px_-12px_rgba(0,0,0,0.65)] transition-transform duration-500 motion-safe:hover:-translate-y-2">
                         <div aria-hidden="true" className="h-6 flex items-center justify-center"><span className="h-1.5 w-12 rounded-full bg-white/15" /></div>
                         <div className="relative aspect-[390/844] overflow-hidden rounded-[1.65rem] bg-white">
-                          <Image src={`/images/projects/${project.id}.png`} alt={`${project.title} mobile ${project.id === "vcglone" ? "sign-in screen" : project.id === "collab" ? "meeting entry page" : "app preview"}`} fill sizes="224px" className="object-cover object-top" />
+                          <Image src={`/images/projects/${project.id}.png`} alt={`${project.title} mobile ${project.id === "vcglone" ? "sign-in screen" : project.id === "collab" ? "meeting entry page" : "app preview"}`} fill loading="eager" sizes="(max-width: 640px) 166px, 224px" className="object-cover object-top" />
                         </div>
                         <div aria-hidden="true" className="h-5 flex items-center justify-center"><span className="h-1 w-16 rounded-full bg-white/35" /></div>
                       </div>
