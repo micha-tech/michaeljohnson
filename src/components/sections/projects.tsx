@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ExternalLink, Check, Shield, UserCheck, Brain, ShieldCheck,
@@ -336,7 +337,9 @@ const projects = [
 export function ProjectsSection() {
   const { ref, isVisible } = useIntersectionObserver();
   const [expandedProject, setExpandedProject] = useState<string | null>(null);
-  const selectedProjects = projects.slice(0, 4);
+  const selectedProjects = projects.filter((project) =>
+    ["trustpoint", "collab", "retail-logic", "vcglone", "anywork365"].includes(project.id)
+  );
 
   return (
     <section id="projects" ref={ref} className="section-padding relative">
@@ -368,10 +371,23 @@ export function ProjectsSection() {
                   transition={{ duration: 0.4, delay: i * 0.05 }}
                 >
                   <div
-                    className={`glass-card border ${project.border} overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary/5`}
+                    className={`glass-card rounded-3xl border ${project.border} overflow-hidden grid lg:grid-cols-[340px_minmax(0,1fr)] transition-all duration-300 hover:shadow-lg hover:shadow-primary/5`}
                   >
+                    <figure className={`relative flex flex-col items-center justify-center gap-6 overflow-hidden bg-gradient-to-br ${project.color} px-7 py-10 border-b lg:border-b-0 lg:border-r border-white/5`}>
+                      <span aria-hidden="true" className="absolute top-6 left-6 text-xs font-mono tracking-[0.2em] text-muted">0{i + 1}</span>
+                      <div className="relative w-full max-w-[238px] rounded-[2.5rem] border border-white/25 bg-[#111113] p-[7px] shadow-[0_24px_50px_-12px_rgba(0,0,0,0.65)] transition-transform duration-500 motion-safe:hover:-translate-y-2">
+                        <div aria-hidden="true" className="h-6 flex items-center justify-center"><span className="h-1.5 w-12 rounded-full bg-white/15" /></div>
+                        <div className="relative aspect-[390/844] overflow-hidden rounded-[1.65rem] bg-white">
+                          <Image src={`/images/projects/${project.id}.png`} alt={`${project.title} mobile ${project.id === "vcglone" ? "sign-in screen" : project.id === "collab" ? "meeting entry page" : "app preview"}`} fill sizes="224px" className="object-cover object-top" />
+                        </div>
+                        <div aria-hidden="true" className="h-5 flex items-center justify-center"><span className="h-1 w-16 rounded-full bg-white/35" /></div>
+                      </div>
+                      <figcaption className="text-[10px] text-muted uppercase tracking-[0.18em] text-center">
+                        {project.id === "vcglone" ? "Workforce portal · Sign in" : project.id === "collab" ? "Video collaboration · Meeting entry" : "Mobile experience"}
+                      </figcaption>
+                    </figure>
                     <div className="p-6 sm:p-8">
-                      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-6">
+                      <div className="flex flex-col xl:flex-row xl:items-start xl:justify-between gap-4 mb-6">
                         <div className="flex items-center gap-3">
                           <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${project.color} flex items-center justify-center shrink-0`}>
                             <project.icon className="w-6 h-6 text-foreground" />
@@ -416,6 +432,7 @@ export function ProjectsSection() {
                           <Button
                             variant="ghost"
                             size="sm"
+                            aria-expanded={expandedProject === project.id}
                             onClick={() => setExpandedProject(expandedProject === project.id ? null : project.id)}
                           >
                             {expandedProject === project.id ? "Less" : "Details"}

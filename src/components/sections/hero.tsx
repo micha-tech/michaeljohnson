@@ -85,15 +85,16 @@ export function HeroSection() {
             variants={itemVariants}
             className="relative flex items-center justify-center lg:justify-end self-stretch min-h-[510px]"
           >
-            <div className="relative w-full max-w-[520px] h-full min-h-[560px] overflow-hidden bg-card">
-              <div className="absolute inset-0 opacity-40 bg-gradient-to-t from-background via-transparent to-transparent z-10" />
+            <div className="relative w-full max-w-[520px] aspect-[3/4] self-center overflow-hidden rounded-[2rem] border border-white/10 bg-card shadow-[0_28px_90px_-30px_rgba(240,90,22,0.3)]">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent z-10" />
               <div className="absolute inset-0 flex items-center justify-center">
                   <Image
-                    src="/images/michaeljohnson.png"
+                    src="/images/michael-johnson-portrait.webp"
                     alt="Michael Johnson"
                     fill
+                    priority
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover object-center grayscale-[15%] contrast-110"
+                    className="object-cover object-[center_35%]"
                   />
               </div>
               <div className="absolute left-6 bottom-6 z-20 border-l-2 border-primary pl-3 text-xs font-mono uppercase tracking-[0.16em] text-foreground/80">
