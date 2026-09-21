@@ -29,6 +29,10 @@ export function HeroSection() {
       ref={ref}
       className="relative min-h-screen flex items-center overflow-hidden pt-28 pb-16"
     >
+      <div aria-hidden="true" className="absolute -left-6 top-24 select-none text-[22vw] font-bold leading-none tracking-[-0.08em] text-white/[0.018]">
+        SYSTEMS
+      </div>
+      <div aria-hidden="true" className="absolute right-[8%] top-28 h-32 w-32 rounded-full border border-primary/20 shadow-[0_0_80px_rgba(240,90,22,0.12)]" />
       <div className="container-wide w-full">
         <motion.div
           variants={containerVariants}
@@ -76,7 +80,7 @@ export function HeroSection() {
               </Button>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-muted">
+            <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-muted border-l-2 border-primary pl-4">
               <span className="inline-flex items-center gap-1.5"><MapPin className="w-4 h-4" /> Nigeria · UTC+1</span>
               <span>Open to remote senior engineering roles</span>
             </motion.div>

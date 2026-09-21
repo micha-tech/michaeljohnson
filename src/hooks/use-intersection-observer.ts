@@ -14,7 +14,9 @@ export function useIntersectionObserver({
   triggerOnce = true,
 }: UseIntersectionObserverOptions = {}) {
   const ref = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
+  // Content must remain readable when IntersectionObserver is delayed, blocked,
+  // or unavailable. Motion is progressive enhancement, not a visibility gate.
+  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
     const element = ref.current;

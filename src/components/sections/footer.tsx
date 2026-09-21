@@ -63,7 +63,7 @@ export function FooterSection() {
             © {new Date().getFullYear()} Michael Johnson. All rights reserved.
           </p>
           <p className="text-[11px] text-muted flex items-center gap-1">
-            Built with Next.js · Vercel
+            Built with Next.js · TypeScript
           </p>
         </div>
       </div>
