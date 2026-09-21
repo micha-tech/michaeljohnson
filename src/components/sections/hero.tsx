@@ -50,19 +50,20 @@ export function HeroSection() {
               variants={itemVariants}
               className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.8rem] xl:text-[7rem] font-bold leading-[0.92] tracking-[-0.06em] mb-8"
             >
-              Building reliable
+              Engineering systems
               <br />
-              software for
+              that survive
               <br />
-              <span className="text-gradient">complex businesses.</span>
+              <span className="text-gradient">production reality.</span>
             </motion.h1>
 
             <motion.p
               variants={itemVariants}
               className="text-base sm:text-lg text-muted leading-relaxed max-w-xl mb-8"
             >
-              I design and ship secure, scalable web platforms—from payment and marketplace
-              workflows to real-time collaboration and multi-tenant SaaS products.
+              Senior full-stack and platform engineer working from browser state and API
+              contracts down to PostgreSQL query plans, Dockerized Linux infrastructure,
+              observability, data pipelines, and machine-learning systems.
             </motion.p>
 
             <motion.div variants={itemVariants} className="flex flex-wrap gap-3 mb-10">
@@ -98,7 +99,7 @@ export function HeroSection() {
                   />
               </div>
               <div className="absolute left-6 bottom-6 z-20 border-l-2 border-primary pl-3 text-xs font-mono uppercase tracking-[0.16em] text-foreground/80">
-                Systems · Product · Delivery
+                Architecture · Delivery · Operations
               </div>
             </div>
           </motion.div>

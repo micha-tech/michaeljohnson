@@ -174,6 +174,59 @@ const projects = [
     tech: ["Vercel", "Firebase Auth", "Aiven PostgreSQL", "Connection Pooling", "Serverless"],
   },
   {
+    id: "clamps-ops",
+    title: "Clamps Ops",
+    tagline: "Internal business operations platform",
+    href: "https://clamps-ops.vercel.app/login?next=%2Fapp%2Fdashboard",
+    repo: "https://github.com/micha-tech/clamps_ops",
+    status: "Live",
+    icon: Building2,
+    color: "from-emerald-500/20 to-emerald-500/5",
+    border: "border-emerald-500/20",
+    badge: "Enterprise",
+    group: "Platform",
+    description: "An employee-only operations platform for an engineering firm covering sales, project execution, procurement, inventory, finance, documents, notifications, and controlled administration.",
+    outcomes: [
+      "Protected workspaces with role-based access",
+      "Signed upload and download flows for operational documents",
+      "Structured data, logging, and environment validation",
+    ],
+    concepts: ["Enterprise SaaS", "RBAC", "Internal Tooling", "Auditability"],
+    tech: ["Next.js", "Supabase", "Prisma", "PostgreSQL", "Zod"],
+  },
+  {
+    id: "educe",
+    title: "Educe Studio",
+    tagline: "Creative studio portfolio and services site",
+    href: "https://educe-zeta.vercel.app/",
+    status: "Live",
+    icon: Building2,
+    color: "from-orange-500/20 to-orange-500/5",
+    border: "border-orange-500/20",
+    badge: "Creative Platform",
+    group: "Showcase",
+    description: "An editorial studio site for cinematography, photography, music, and visual coverage, with immersive storytelling, selected work, and studio enquiries.",
+    outcomes: ["Motion-led responsive storytelling", "Service and portfolio sections", "Accessible navigation and contact flow"],
+    concepts: ["Creative Direction", "Responsive UI", "Motion Design", "Content Architecture"],
+    tech: ["Next.js", "React", "Tailwind", "Framer Motion"],
+  },
+  {
+    id: "educemusic",
+    title: "Educe Music",
+    tagline: "Music production and recording studio site",
+    href: "https://educemusic.vercel.app/",
+    status: "Live",
+    icon: Radio,
+    color: "from-fuchsia-500/20 to-fuchsia-500/5",
+    border: "border-fuchsia-500/20",
+    badge: "Music Studio",
+    group: "Showcase",
+    description: "A dedicated Educe music studio experience covering recording, production, mixing, mastering, performance, services, and booking enquiries.",
+    outcomes: ["Service-led studio presentation", "Selected work and process storytelling", "Responsive navigation across a long-form page"],
+    concepts: ["Music Production", "Service Design", "Long-form Storytelling", "Responsive UI"],
+    tech: ["Next.js", "React", "Tailwind", "Framer Motion"],
+  },
+  {
     id: "house-of-bp",
     title: "House of B&P",
     tagline: "Luxury Menswear E-Commerce Storefront",
@@ -199,35 +252,6 @@ const projects = [
       "Cart & Checkout Flow",
     ],
     tech: ["Next.js", "Supabase", "PostgreSQL", "Paystack", "Zod"],
-  },
-  {
-    id: "clamps-ops",
-    title: "Clamps Ops",
-    tagline: "Internal Business Operations Platform",
-    repo: "https://github.com/micha-tech/clamps_ops",
-    status: "Live",
-    icon: Building2,
-    color: "from-emerald-500/20 to-emerald-500/5",
-    border: "border-emerald-500/20",
-    badge: "Enterprise",
-    group: "Platform",
-    description:
-      "An employee-only operations platform for an engineering firm: sales, project execution, procurement, inventory, finance, documents, notifications, and audit-controlled administration.",
-    outcomes: [
-      "Secured app shell with role-based access and protected routes",
-      "Supabase-powered storage with signed upload/download flows",
-      "Prisma-structured data mapped to database auth",
-      "Structured logging and environment validation",
-    ],
-    concepts: [
-      "Enterprise SaaS",
-      "Authentication & Authorization",
-      "RBAC",
-      "File Storage & Signed URLs",
-      "Audit-Controlled Admin",
-      "Internal Tooling",
-    ],
-    tech: ["Next.js", "Supabase", "Prisma", "PostgreSQL", "React Hook Form", "Zod"],
   },
   {
     id: "watergate",
@@ -338,7 +362,7 @@ export function ProjectsSection() {
   const { ref, isVisible } = useIntersectionObserver();
   const [expandedProject, setExpandedProject] = useState<string | null>(null);
   const selectedProjects = projects.filter((project) =>
-    ["trustpoint", "collab", "retail-logic", "vcglone", "anywork365"].includes(project.id)
+    ["trustpoint", "collab", "retail-logic", "vcglone", "anywork365", "clamps-ops", "educe", "educemusic"].includes(project.id)
   );
 
   return (

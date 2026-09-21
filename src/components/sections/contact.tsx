@@ -132,8 +132,8 @@ export function ContactSection() {
               Let&apos;s build something <span className="text-gradient">trustworthy</span>
             </h3>
             <p className="text-muted">
-              Open to engineering opportunities, collaborations, and conversations about
-              trust infrastructure and platform engineering.
+              Open to senior engineering roles and collaborations across product platforms,
+              data-intensive systems, infrastructure, and applied machine learning.
             </p>
             <div className="mt-6 flex flex-col sm:flex-row justify-center gap-3 text-sm">
               <a href={`mailto:${email}`} className="inline-flex items-center justify-center gap-2 border border-border/60 px-4 py-3 text-foreground transition-colors hover:border-primary hover:text-primary">

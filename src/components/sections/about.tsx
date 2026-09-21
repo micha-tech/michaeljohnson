@@ -2,38 +2,38 @@
 
 import { motion } from "framer-motion";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
-import { Code2, Shield, Brain, Cpu, Lock, Fingerprint } from "lucide-react";
+import { Code2, Shield, Brain, Database, Terminal, LineChart } from "lucide-react";
 
 const focusAreas = [
   {
     icon: Code2,
-    label: "Fullstack Engineering",
-    desc: "Scalable web platforms & distributed systems",
+    label: "Product Engineering",
+    desc: "React systems, APIs, domain models, testing, and delivery",
   },
   {
     icon: Shield,
-    label: "Trust Infrastructure",
-    desc: "Escrow systems, IAM, fraud prevention",
+    label: "Reliable Platforms",
+    desc: "Payments, multi-tenancy, IAM, audit trails, and workflows",
   },
   {
-    icon: Lock,
-    label: "Application Security",
-    desc: "Secure architecture, threat modeling, CSP, audit",
+    icon: Database,
+    label: "Data Systems",
+    desc: "PostgreSQL, pooling, query plans, vectors, graphs, and pipelines",
   },
   {
     icon: Brain,
-    label: "AI-Assisted Systems",
-    desc: "ML-powered trust scoring & detection",
+    label: "Applied ML",
+    desc: "Feature engineering, XGBoost, HMMs, retrieval, and evaluation",
   },
   {
-    icon: Cpu,
-    label: "Platform Architecture",
-    desc: "Event-driven, serverless, production-grade",
+    icon: Terminal,
+    label: "Linux & Infrastructure",
+    desc: "Docker, VPS operations, reverse proxies, CI/CD, and monitoring",
   },
   {
-    icon: Fingerprint,
-    label: "Security Engineering",
-    desc: "IAM, cryptography, secure SDLC, zero trust",
+    icon: LineChart,
+    label: "Business Systems",
+    desc: "Constraints, unit economics, delivery risk, and operational metrics",
   },
 ];
 
@@ -54,24 +54,36 @@ export function AboutSection() {
                 About
               </h2>
               <h3 className="text-3xl sm:text-4xl font-bold mb-6 leading-tight">
-                A product-minded engineer with a <span className="text-gradient">systems mindset.</span>
+                Built across the stack. Accountable <span className="text-gradient">through production.</span>
               </h3>
               <div className="space-y-4 text-muted text-base leading-relaxed">
                 <p>
-                  I am a Nigeria-based full-stack engineer who takes products from ambiguous
-                  requirements to dependable production systems. I work across the stack:
-                  shaping domain models, building interfaces and APIs, integrating third-party
-                  services, and improving the reliability of what ships.
+                  I am a Nigeria-based senior software engineer who turns ambiguous business
+                  problems into systems that can be operated, measured, and changed safely. I
+                  work through discovery, domain modelling, architecture, implementation,
+                  deployment, monitoring, incident diagnosis, and the unglamorous maintenance
+                  that keeps a product useful after launch.
                 </p>
                 <p>
-                  My strongest work sits where correctness matters: payments and escrow,
-                  identity and access, multi-tenant business software, and collaborative
-                  real-time products. I care about clear operational workflows, secure defaults,
-                  and software teams can evolve confidently.
+                  My range is deliberately deep. On the frontend that means component APIs,
+                  state ownership, TanStack Query caching and invalidation, accessible interaction,
+                  Zod-backed forms, rendering strategy, performance budgets, and design-system
+                  discipline. On the backend it means explicit API contracts, authorization,
+                  idempotency, queues, webhooks, transactional boundaries, failure recovery,
+                  PostgreSQL indexing, query optimization, connection pooling, and data integrity.
                 </p>
                 <p>
-                  I am open to senior remote roles where thoughtful engineering, ownership,
-                  and collaboration have a direct impact on customers and the business.
+                  I also build and operate the substrate: Linux servers, Docker images and
+                  Compose stacks, VPS provisioning, Nginx, TLS, DNS, secrets, backups, deployment
+                  pipelines, logs, metrics, alerts, and capacity planning. For data-intensive work,
+                  I use vector search, Neo4j and graph intelligence, feature pipelines, XGBoost,
+                  Hidden Markov Models, and evaluation loops where they solve a real problem.
+                </p>
+                <p>
+                  Engineering decisions are business decisions. I use the Theory of Constraints,
+                  value-stream thinking, cost of delay, unit economics, service-level objectives,
+                  risk reduction, and build-versus-buy analysis to find the bottleneck and spend
+                  complexity where it creates measurable value.
                 </p>
               </div>
             </div>

@@ -22,9 +22,9 @@ export const metadata: Metadata = {
     template: "%s | Michael Johnson",
   },
   description:
-    "Senior full-stack engineer building secure, scalable web platforms, payment workflows, and multi-tenant SaaS products.",
+    "Senior software engineer across React, API design, PostgreSQL, Linux, Docker, data engineering, graph systems, machine learning, and production operations.",
   keywords: [
-    "Fullstack Engineer",
+    "Senior Software Engineer",
     "Software Engineer",
     "Trust Systems",
     "Fintech",
@@ -33,6 +33,12 @@ export const metadata: Metadata = {
     "Nigeria",
     "Web Development",
     "Application Security",
+    "PostgreSQL",
+    "Docker",
+    "Linux",
+    "Data Engineering",
+    "Machine Learning",
+    "Neo4j",
   ],
   authors: [{ name: "Michael Johnson" }],
   creator: "Michael Johnson",
@@ -42,14 +48,14 @@ export const metadata: Metadata = {
     siteName: "Michael Johnson",
     title: "Michael Johnson | Senior Full-Stack Engineer",
     description:
-      "Building scalable web applications, trust systems, fintech-inspired infrastructure, and AI-powered systems.",
+      "Production-minded engineering across frontend systems, APIs, data, infrastructure, and applied machine learning.",
     url: "https://michaeljohnson.dev",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Michael Johnson | Fullstack Software Engineer",
+    title: "Michael Johnson | Senior Software Engineer",
     description:
-      "Building scalable web applications, trust systems, fintech-inspired infrastructure, and AI-powered systems.",
+      "Production-minded engineering across frontend systems, APIs, data, infrastructure, and applied machine learning.",
   },
   robots: {
     index: true,
@@ -71,14 +77,19 @@ const jsonLd = {
   url: "https://michaeljohnson.dev",
   jobTitle: "Senior Full-Stack Engineer",
   description:
-    "Fullstack Software Engineer specializing in scalable web platforms, trust systems, fintech infrastructure, and AI-powered applications.",
+    "Senior software engineer working across frontend systems, APIs, PostgreSQL, Linux infrastructure, data engineering, graph intelligence, and applied machine learning.",
   knowsAbout: [
-    "Fullstack Engineering",
+    "Frontend and Backend Engineering",
     "Trust Systems",
     "Application Security",
     "Platform Architecture",
     "Fintech Infrastructure",
-    "AI-Assisted Systems",
+    "Applied Machine Learning",
+    "Linux and Docker",
+    "PostgreSQL Performance",
+    "Data Engineering",
+    "Neo4j and Graph Intelligence",
+    "Machine Learning",
   ],
   sameAs: ["https://github.com/michaeljohnson", "https://linkedin.com/in/michaeljohnson"],
 };

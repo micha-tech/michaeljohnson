@@ -19,7 +19,7 @@ export function FooterSection() {
               <span className="text-muted">.dev</span>
             </a>
             <p className="text-xs text-muted mt-1">
-              Fullstack Software Engineer · Trust Infrastructure · Platform Engineering
+              Senior Software Engineer · Product · Platform · Data · Infrastructure
             </p>
           </motion.div>
 
